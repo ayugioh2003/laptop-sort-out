@@ -9,8 +9,8 @@
 
 ## 動機
 
-最近在觀察需要的筆電，但要慢慢比價查詢有點麻煩，就參考原價屋的資料
-剛好昨天看到一個[前端爬蟲寫法](https://github.com/tpkahlon/javascript/blob/master/43/script.js)，就參考了一下
+最近在觀察需要的筆電，但要慢慢比價查詢有點麻煩，就參考了原價屋的資料。<br>
+而且剛好昨天看到一個[前端爬蟲寫法](https://github.com/tpkahlon/javascript/blob/master/43/script.js)，就參考了一下。
 
 ## 使用技術
 
