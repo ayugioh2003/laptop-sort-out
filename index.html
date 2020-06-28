@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>筆電規格價錢整理</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>筆電規格價錢整理</h1>
+      <div>資料來源：<a href="http://www.coolpc.com.tw/evaluate.php">原價屋</a></div>
+      <div v-if="loading">Loading...</div>
+      <div v-for="brand in data">
+        <div>{{brand.id}}</div>
+        <ul>
+          <li v-for="item in brand.products">
+            {{item}}
+            <a :href="`https://www.google.com/search?q=${item}`">搜尋</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"
+    ></script>
+    <script src="./all.js"></script>
+  </body>
+</html>
