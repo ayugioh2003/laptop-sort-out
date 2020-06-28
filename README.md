@@ -16,3 +16,5 @@
 
 - axios (CDN) 發起 http request
 - vue (CDN) 方便寫畫面
+- ES6 語法
+- DOM 操作
