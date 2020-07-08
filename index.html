@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>筆電規格價錢整理</title>
+    <style>
+      #app {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+      }
+      .input-group,
+      .input-group input {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .input-group label {
+        display: inline-block;
+        width: 150px;
+      }
+      .input-group input {
+        width: 120px;
+      }
+      .card {
+        padding-top: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>筆電規格價錢整理</h1>
+        <div>
+          資料來源：
+          <a href="http://www.coolpc.com.tw/eachview.php?IGrp=2">原價屋</a>、
+        </div>
+        <div>
+          相關網頁：
+          <a href="http://www.coolpc.com.tw/evaluate.php">原價屋估價</a>、
+          <a href="https://ayugioh2003.github.io/laptop-sort-out/index2.html"
+            >規格摘要</a
+          >、
+          <a href="https://www.ptt.cc/bbs/nb-shopping/index.html?q=選購"
+            >PTT筆電蝦</a
+          >
+        </div>
+        <div>筆電數量 {{ isLaptopData.length }}</div>
+        <div>篩選數量 {{ filterLaptopData.length }}</div>
+        <div v-if="loading">Loading...</div>
+      </header>
+
+      <div v-if="!loading" style="margin-top: 1rem;">
+        <div>篩選指標</div>
+        <div class="input-group">
+          <label for="ramMin">ramMin </label>
+          <input id="ramMin" type="number" v-model.number="option.ramMin" />
+        </div>
+        <div class="input-group">
+          <label for="priceMin">price</label>
+          <input
+            id="priceMin"
+            type="number"
+            step="1000"
+            v-model.number="option.priceMin"
+          />
+          <span>-</span>
+          <input
+            id="priceMax"
+            type="number"
+            step="1000"
+            v-model.number="option.priceMax"
+          />
+        </div>
+        <div class="input-group">
+          <label for="weightMax">weightMax </label>
+          <input
+            id="weightMax"
+            type="number"
+            step="0.1"
+            v-model.number="option.weightMax"
+          />
+        </div>
+      </div>
+
+      <div v-for="(item, i) in filterLaptopData" :key="i" class="card">
+        <a :href="`https://www.google.com/search?q=${item[0]}`" target="_blank"
+          >{{ item[0] }}</a
+        >
+        <div v-for="(div, j) in item" :key="div">
+          <span v-if="j > 0">{{ div }}</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="./all.js"></script>
+  </body>
+</html>
