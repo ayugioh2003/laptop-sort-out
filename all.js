@@ -60,7 +60,7 @@ const app = new Vue({
           try {
             const weightText = item[7]
             const weight = vm.getWeight(weightText)
-            console.log(index, weight, weightText)
+            // console.log(index, weight, weightText)
             return weight <= vm.option.weightMax
           } catch (e) {
             console.log(index, item[9], e)
