@@ -7,7 +7,7 @@ const app = new Vue({
       ramMin: 16,
       priceMin: 25000,
       priceMax: 40000,
-      weightMax: 1.6
+      weightMax: 1.5,
     },
   },
   computed: {
@@ -85,7 +85,7 @@ const app = new Vue({
     getRamMax(ramText) {
       const regularResult_G = ramText.match(/Max ([0-9]*)G/)
       const regularResultDotG = ramText.match(/Max\.([0-9]*)G/)
-      const regularResultColonG = ramText.match(/Max\:([0-9]*)G/)
+      const regularResultColonG = ramText.match(/Max\: ([0-9]*)G/)
 
       if (
         regularResult_G == null &&
@@ -106,7 +106,11 @@ const app = new Vue({
       const regularResultKG = weightText.match(/([0-9.]*)Kg/i)
       const regularResultNoKG = weightText.match(/([0-9.]*) /i)
 
-      if (regularResultG == null && regularResultKG == null && regularResultNoKG == null) {
+      if (
+        regularResultG == null &&
+        regularResultKG == null &&
+        regularResultNoKG == null
+      ) {
         return null
       } else if (regularResultKG) {
         return Number(regularResultKG[1])
@@ -115,6 +119,22 @@ const app = new Vue({
       } else if (regularResultNoKG) {
         return Number(regularResultNoKG[1])
       }
+    },
+    getDefaultFilterItems() {
+      this.$set(this, 'option', {
+        ramMin: 16,
+        priceMin: 25000,
+        priceMax: 40000,
+        weightMax: 1.5,
+      })
+    },
+    getAllItems() {
+      this.$set(this, 'option', {
+        ramMin: 0,
+        priceMin: 0,
+        priceMax: 999999,
+        weightMax: 10,
+      })
     },
   },
   mounted() {

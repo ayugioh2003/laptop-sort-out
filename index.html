@@ -35,7 +35,7 @@
         <h1>筆電規格價錢整理</h1>
         <div>
           資料來源：
-          <a href="http://www.coolpc.com.tw/eachview.php?IGrp=2">原價屋</a>、
+          <a href="http://www.coolpc.com.tw/eachview.php?IGrp=2">原價屋</a>
         </div>
         <div>
           相關網頁：
@@ -53,10 +53,15 @@
       </header>
 
       <div v-if="!loading" style="margin-top: 1rem;">
-        <div>篩選指標</div>
+        <div>
+          <span style="margin-right: 1rem; font-size: 2rem;">篩選指標</span>
+          <button @click.prevent="getDefaultFilterItems">預設</button>
+          <button @click.prevent="getAllItems">全部</button>
+        </div>
         <div class="input-group">
-          <label for="ramMin">ramMin </label>
+          <label for="ramMin">ramMin</label>
           <input id="ramMin" type="number" v-model.number="option.ramMin" />
+          GB
         </div>
         <div class="input-group">
           <label for="priceMin">price</label>
@@ -73,15 +78,17 @@
             step="1000"
             v-model.number="option.priceMax"
           />
+          dollors
         </div>
         <div class="input-group">
-          <label for="weightMax">weightMax </label>
+          <label for="weightMax">weightMax</label>
           <input
             id="weightMax"
             type="number"
             step="0.1"
             v-model.number="option.weightMax"
           />
+          kg
         </div>
       </div>
 
