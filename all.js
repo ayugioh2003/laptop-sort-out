@@ -139,8 +139,8 @@ const app = new Vue({
   },
   mounted() {
     const vm = this
-    const cors = 'https://cors-anywhere.herokuapp.com/'
-//     const cors = 'https://cors-unlimited.herokuapp.com/'
+    // const cors = 'https://cors-anywhere.herokuapp.com/'
+    const cors = 'https://cors-unlimited.herokuapp.com/'
     const API = 'http://www.coolpc.com.tw/eachview.php?IGrp=2'
 
     console.log('mount')
